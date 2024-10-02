@@ -33,4 +33,17 @@ class HomeSecondSpec extends GebSpec {
         then: "Home page is displayed, again"
             title == "Homepage"
     }
+
+    void "home links to fhnw"() {
+        when:"The home page is visited"
+        go '/static/Home.html'
+        then:"The title is Homepage"
+        title == "Homepage"
+
+        when: "click on link to fhnw"
+        $("a", text: "fhnw").click()
+        then: "Second page is displayed"
+        title == "fhnw"
+
+    }
 }
